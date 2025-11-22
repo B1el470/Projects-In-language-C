@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <locale.h>
+int main() {
+	setlocale(LC_ALL, "portuguese");
+	int gabriel;
+
+	printf("idade do gabriel é:\n");
+	scanf_s("%d", &gabriel);
+
+	if (gabriel > 17) {
+		printf_s("idade errada\n", gabriel);
+	}
+	else if  (gabriel < 17) {
+		printf_s("idade errada \n", gabriel);
+	}
+	else if (gabriel = 17) {
+		printf_s("idade certa\n", gabriel);
+	}
+
+	return 0;
+}

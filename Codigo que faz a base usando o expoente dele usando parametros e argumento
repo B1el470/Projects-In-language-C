@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int potencia(int base, int expoente) {
+	int resultado = 1;
+	
+	for (int i = 0; i < expoente; i++) {
+		resultado *= base;
+	}
+	return resultado;
+	 }
+int main() {
+	int base, expoente, result;
+
+	printf("indique a base:");
+		scanf_s("%d", &base);
+
+		printf("indique o expoente:");
+
+		scanf_s("%d", &expoente);
+		
+		result = potencia(base, expoente);
+		printf("a base é %d ao expoente %d é %d", base, expoente, result);
+}

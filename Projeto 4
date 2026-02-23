@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+
+	char s1[100], s2[100];
+	int count = 0;
+	int i = 0, maiusculas = 0, minusculas = 0;
+
+	printf("Insira a primeira palavra: ");
+	fgets(s1, sizeof(s1), stdin);
+	s1[strcspn(s1, "\n")] = '\0'; //remove o caractere de nova linha
+	
+	printf("insira a segunda palavra: ");
+	fgets(s2, sizeof(s2), stdin);
+	s2[strcspn(s2, "\n")] = '\0';
+
+	for (int i = 0; s1[i] != '\0'; i++) {
+		if (strstr(&s1[i], s2) == &s1[i]) {
+			count++;
+			i += strlen(s2) - 1;
+		}
+		
+	}
+
+	if (isupper(s1[i])) {
+		maiusculas++;
+	}
+	else if (islower(s1[i])) {
+		minusculas++;
+	}
+
+	printf("\n\"%s\" tem %d vezes em \"%s\"", s2,count, s1, maiusculas, minusculas);
+
+	return 0;
+}
+ 

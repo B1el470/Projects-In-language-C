@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <locale.h>
+
+typedef struct {
+
+	int horas;
+	int min;
+	int seg;
+
+} tempo;
+
+void diferenca(tempo* t1, tempo* t2, tempo* resultado) {
+
+	int s1 = t1->horas * 3600 + t1->min * 60 + t1->seg;
+	int s2 = t2->horas * 3600 + t2->min * 60 + t2->seg;
+
+	int d = s1 - s2;
+	if (d < 0) d = -d;
+
+	resultado->horas = d / 3600;
+	d %= 3600;
+	resultado->min = d / 60;
+	resultado->seg = d % 60;
+
+}
+int main() {
+	setlocale(LC_ALL, "portuguese");
+
+	tempo inicio, fim, result;
+
+	int total;
+
+	printf("Por favor insere o tempo inicial:\n ");
+
+	printf("Insere horas, minutos e segundos respetivamente: ");
+	scanf_s("%d %d %d", &inicio.horas, &inicio.min, &inicio.seg);
+
+	printf("Por favor insere o tempo final:\n");
+
+	printf("\nInsere horas, minutos e segundos respetivamente: ");
+	scanf_s("%d %d %d", &fim.horas, &fim.min, &fim.seg);
+
+	diferenca(&inicio, &fim, &result);
+
+	printf("Diferente entre o tempo de inicio e de fim: %02d:%02d:%02d - %02d: %02d:%02d = %d:%d:%d", inicio.horas, inicio.min, inicio.seg ,fim.horas, fim.min, fim.seg, result.horas, result.min, result.seg);
+
+	return 0;
+}

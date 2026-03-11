@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <locale.h>
+#include <string.h>
+
+struct produto{
+
+	char nome[50]; 
+	float preço;
+	int quantidade;
+
+};
+
+int main() {
+	setlocale(LC_ALL, "portuguese");
+
+	float total;
+
+	struct produto a1;
+	struct produto a2;
+	struct produto a3;
+	struct produto* ponteiro;
+
+	ponteiro = &a1;
+	ponteiro = &a2;
+	ponteiro = &a3;
+
+	printf("Insira o nome do produto: ");
+	fgets(a1.nome, sizeof(a1.nome), stdin);
+
+	printf("Insira o preço: "); 
+	scanf_s("%f", &a2.preço);
+
+	printf("Insere a quantidade: ");
+	scanf_s("%d", &a3.quantidade);
+
+	total = a2.preço * a3.quantidade;
+
+	printf("Nome: %s\n", a1.nome);
+
+	printf("Preço: %f\n", a2.preço);
+
+	printf("Quantidade: %d\n", a3.quantidade);
+
+
+	printf("Valor total: %f\n", total);
+
+
+	return 0;
+}
